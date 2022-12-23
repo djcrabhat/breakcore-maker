@@ -1,5 +1,5 @@
 # How it works i guess????
-this takes a snippet of a wav file and turns it into breakbeats.
+this takes a snippet of a wav file and turns it into breakcore.
 
 recommended file size seems to be 3 seconds of music.
 
