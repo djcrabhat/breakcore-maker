@@ -4,7 +4,6 @@ import sys
 import os
 
 
-
 class Sample:
     def __init__(self, path):
         self.path = path
@@ -34,7 +33,7 @@ class Sample:
 
     def fuck_it_up(self, slices=16, total_chunks=32, name_format="fuck_it_up.wav"):
         chunks = self.chunk(slices=slices)
-        with wave.open("output/"+name_format, "w") as w:
+        with wave.open("output/" + name_format, "w") as w:
             w.setnchannels(s.channels)
             w.setsampwidth(s.width)
             w.setframerate(s.rate)
@@ -60,4 +59,3 @@ if __name__ == "__main__":
 
     # s.fuck_it_up(slices=32,total_chunks=64, name_format="fuck_it_up_3.wav")
     s.fuck_it_up(slices=16, total_chunks=128, name_format=outputFile)
-
