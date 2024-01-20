@@ -1,5 +1,8 @@
 import random
 import wave
+import sys
+import os
+
 
 
 class Sample:
@@ -31,7 +34,7 @@ class Sample:
 
     def fuck_it_up(self, slices=16, total_chunks=32, name_format="fuck_it_up.wav"):
         chunks = self.chunk(slices=slices)
-        with wave.open(name_format, "w") as w:
+        with wave.open("output/"+name_format, "w") as w:
             w.setnchannels(s.channels)
             w.setsampwidth(s.width)
             w.setframerate(s.rate)
@@ -43,6 +46,18 @@ class Sample:
 
 
 if __name__ == "__main__":
-    s = Sample("cw_amen01_175.wav")
+    inputFile = sys.argv[1] if len(
+        sys.argv) >= 2 else "cw_amen01_175.wav"
 
-    s.fuck_it_up(slices=16, total_chunks=128, name_format="fuck_it_up_5.wav")
+    outputFile = sys.argv[2] if len(sys.argv) >= 3 else "fuck_it_up_4.wav"
+    s = Sample(inputFile)
+
+    outputFolder = "output"
+    if not os.path.isdir(outputFolder):
+        os.makedirs(outputFolder)
+
+    # s.write_chunks()
+
+    # s.fuck_it_up(slices=32,total_chunks=64, name_format="fuck_it_up_3.wav")
+    s.fuck_it_up(slices=16, total_chunks=128, name_format=outputFile)
+
