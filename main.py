@@ -40,7 +40,6 @@ class Sample:
 
             for i in range(total_chunks):
                 index = random.randint(0, len(chunks) - 1)
-                print(index)
                 w.writeframes(chunks[index])
 
 
@@ -48,7 +47,7 @@ if __name__ == "__main__":
     inputFile = sys.argv[1] if len(
         sys.argv) >= 2 else "cw_amen01_175.wav"
 
-    outputFile = sys.argv[2] if len(sys.argv) >= 3 else "fuck_it_up_4.wav"
+    outputFile = sys.argv[2] if len(sys.argv) >= 3 else "fuck_it_up_6.wav"
     s = Sample(inputFile)
 
     outputFolder = "output"
@@ -59,3 +58,4 @@ if __name__ == "__main__":
 
     # s.fuck_it_up(slices=32,total_chunks=64, name_format="fuck_it_up_3.wav")
     s.fuck_it_up(slices=16, total_chunks=128, name_format=outputFile)
+    print(f"written to {outputFile}")
